@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sawit Premium - Minyak Kelapa Sawit Berkualitas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #2D5016;
+            --accent-green: #6B9F3E;
+            --night-blue: #0A1628;
+            --deep-blue: #1A2F4F;
+            --light-green: #A8D08D;
+            --gold: #FFD700;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--night-blue) 0%, var(--deep-blue) 50%, #0D2137 100%);
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Background Animated Orbs */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(107, 159, 62, 0.6), rgba(45, 80, 22, 0.3));
+            filter: blur(60px);
+            animation: float 20s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        .orb:nth-child(1) {
+            width: 400px;
+            height: 400px;
+            top: -100px;
+            left: -100px;
+            animation-duration: 25s;
+        }
+
+        .orb:nth-child(2) {
+            width: 500px;
+            height: 500px;
+            top: 40%;
+            right: -150px;
+            animation-duration: 30s;
+            animation-delay: -5s;
+        }
+
+        .orb:nth-child(3) {
+            width: 350px;
+            height: 350px;
+            bottom: -100px;
+            left: 30%;
+            animation-duration: 28s;
+            animation-delay: -10s;
+        }
+
+        .orb:nth-child(4) {
+            width: 450px;
+            height: 450px;
+            top: 20%;
+            left: 20%;
+            animation-duration: 35s;
+            animation-delay: -15s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(30px, -30px) scale(1.05);
+            }
+            50% {
+                transform: translate(-20px, 40px) scale(0.95);
+            }
+            75% {
+                transform: translate(40px, 20px) scale(1.02);
+            }
+        }
+
+        /* Section Styling */
+        section {
+            min-height: 100vh;
+            padding: 120px 5% 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        section:first-of-type {
+            padding-top: 100px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Home Section */
+        #home {
+            text-align: center;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--light-green), var(--accent-green), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 3s ease-in-out infinite;
+            letter-spacing: -2px;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 20px rgba(168, 208, 141, 0.5));
+            }
+            50% {
+                filter: drop-shadow(0 0 40px rgba(168, 208, 141, 0.8));
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            color: var(--light-green);
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, var(--accent-green), var(--primary-green));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(107, 159, 62, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(107, 159, 62, 0.5);
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+        }
+
+        /* About Section */
+        #about {
+            background: rgba(26, 47, 79, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 40px;
+            color: var(--light-green);
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+        }
+
+        .features {
+            display: grid;
+            gap: 25px;
+        }
+
+        .feature-item {
+            background: rgba(107, 159, 62, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent-green);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(107, 159, 62, 0.2);
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(107, 159, 62, 0.2);
+        }
+
+        .feature-item h3 {
+            color: var(--light-green);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: rgba(10, 22, 40, 0.5);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 25px;
+            background: rgba(107, 159, 62, 0.1);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(107, 159, 62, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-green), var(--primary-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .contact-details h3 {
+            color: var(--light-green);
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .contact-details p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+        }
+
+        /* Message Section */
+        #message {
+            background: rgba(26, 47, 79, 0.3);
+        }
+
+        .message-form {
+            max-width: 600px;
+            margin: 60px auto 0;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--light-green);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(107, 159, 62, 0.3);
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-green);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 20px rgba(107, 159, 62, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--accent-green), var(--primary-green));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(107, 159, 62, 0.4);
+        }
+
+        /* Header Navigation */
+        .header-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 22, 40, 0.8);
+            backdrop-filter: blur(15px);
+            padding: 25px 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-nav.scrolled {
+            background: rgba(10, 22, 40, 0.95);
+            padding: 15px 0;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--light-green), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .header-menu {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            list-style: none;
+        }
+
+        .header-menu li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 12px 25px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header-menu li a::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 30px;
+            background: linear-gradient(135deg, var(--accent-green), var(--primary-green));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .header-menu li a:hover,
+        .header-menu li a.active {
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .header-menu li a:hover::before,
+        .header-menu li a.active::before {
+            opacity: 1;
+            box-shadow: 0 0 30px rgba(107, 159, 62, 0.8),
+                        0 0 60px rgba(107, 159, 62, 0.5),
+                        0 0 90px rgba(107, 159, 62, 0.3);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background: var(--light-green);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .header-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 22, 40, 0.98);
+                flex-direction: column;
+                gap: 0;
+                padding: 20px 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+            }
+
+            .header-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .header-menu li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .header-menu li a {
+                display: block;
+                padding: 15px 20px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            section {
+                padding: 100px 5% 60px;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Section animations on scroll */
+        section {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <nav class="header-nav">
+        <div class="nav-container">
+            <div class="logo">Sawit Premium</div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="header-menu" id="headerMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#message" class="nav-link">Message</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Animated Background Orbs -->
+    <div class="background-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="container">
+            <h1 class="hero-title">Sawit Premium</h1>
+            <p class="hero-subtitle">Kualitas Terbaik dari Alam</p>
+            <p class="hero-description">
+                Kami menyediakan minyak kelapa sawit berkualitas premium yang diproses dengan teknologi modern 
+                dan standar internasional. Produk kami berasal dari perkebunan terpilih dengan praktik 
+                berkelanjutan untuk hasil terbaik.
+            </p>
+            <a href="#about" class="cta-button">Pelajari Lebih Lanjut</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Tentang Kami</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Sawit Premium adalah perusahaan terkemuka dalam industri kelapa sawit di Indonesia. 
+                        Dengan pengalaman lebih dari 20 tahun, kami telah menjadi mitra terpercaya bagi 
+                        ribuan pelanggan di seluruh dunia.
+                    </p>
+                    <p>
+                        Kami berkomitmen untuk menghasilkan produk berkualitas tinggi sambil menjaga 
+                        kelestarian lingkungan dan kesejahteraan masyarakat sekitar perkebunan kami.
+                    </p>
+                    <p>
+                        Setiap tetes minyak sawit kami melewati kontrol kualitas ketat untuk memastikan 
+                        Anda mendapatkan produk terbaik untuk kebutuhan industri dan konsumsi Anda.
+                    </p>
+                </div>
+                <div class="features">
+                    <div class="feature-item">
+                        <h3>🌿 100% Organik</h3>
+                        <p>Diproduksi dari buah sawit pilihan tanpa bahan kimia berbahaya</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>✅ Sertifikasi Internasional</h3>
+                        <p>Memiliki sertifikasi RSPO dan ISO untuk jaminan kualitas</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>🚚 Pengiriman Cepat</h3>
+                        <p>Distribusi ke seluruh Indonesia dan ekspor internasional</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>💰 Harga Kompetitif</h3>
+                        <p>Kualitas premium dengan harga yang bersaing di pasar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3>Alamat</h3>
+                            <p>Jl. Perkebunan Sawit No. 123<br>Surabaya, Jawa Timur 60291</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h3>Telepon</h3>
+                            <p>+62 31 1234 5678<br>+62 812 3456 7890</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>info@sawitpremium.co.id<br>sales@sawitpremium.co.id</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div class="contact-details">
+                            <h3>Jam Operasional</h3>
+                            <p>Senin - Jumat: 08:00 - 17:00<br>Sabtu: 08:00 - 12:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=600&h=600&fit=crop" 
+                         alt="Palm Oil Plantation" 
+                         style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Section -->
+    <section id="message">
+        <div class="container">
+            <h2 class="section-title">Kirim Pesan</h2>
+            <form class="message-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Nama Lengkap</label>
+                    <input type="text" id="name" name="name" required placeholder="Masukkan nama Anda">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="nama@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Nomor Telepon</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+62 812 3456 7890">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subjek</label>
+                    <input type="text" id="subject" name="subject" required placeholder="Perihal pesan Anda">
+                </div>
+                <div class="form-group">
+                    <label for="message">Pesan</label>
+                    <textarea id="message" name="message" required placeholder="Tuliskan pesan Anda di sini..."></textarea>
+                </div>
+                <button type="submit" class="submit-button">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Toggle mobile menu
+        function toggleMenu() {
+            const menu = document.getElementById('headerMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Handle form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Terima kasih! Pesan Anda telah dikirim. Kami akan segera menghubungi Anda.');
+            event.target.reset();
+        }
+
+        // Header transparency on scroll
+        const headerNav = document.querySelector('.header-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                headerNav.classList.add('scrolled');
+            } else {
+                headerNav.classList.remove('scrolled');
+            }
+        });
+
+        // Active menu highlight based on scroll position
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll with offset for header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = 80;
+                    const offsetTop = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const menu = document.getElementById('headerMenu');
+                    menu.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
